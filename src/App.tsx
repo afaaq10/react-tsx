@@ -1,5 +1,6 @@
 import React from 'react';
 import InputField from './components/InputField'
+import TodosList from './components/TodosList'
 import './App.css';
 import { Todo } from './model'
 
@@ -21,7 +22,7 @@ function App() {
   return (
     <div>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-
+      <TodosList todos={todos} setTodos={setTodos} />
     </div>
   );
 }
