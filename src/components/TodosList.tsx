@@ -8,7 +8,7 @@ interface Props {
 const TodosList: React.FC<Props> = ({ todos, setTodos }) => {
     return (
         <div>
-            {todos.map((todo) => <Card todo={todo} todos={todos} />)}
+            {todos.map((todo) => <Card todo={todo} todos={todos} setTodos={setTodos} />)}
 
 
         </div>

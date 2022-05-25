@@ -60,4 +60,31 @@ button:hover{
   background-color:pink;
   transform: scale(0.98);
 }
+.card{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-top:25px;
 
+
+}
+.delete{
+  margin-top:4px;
+  margin-left:12px;
+ 
+  
+}
+.edit{
+  margin-top:4px;
+  margin-left:16px;
+}
+li{
+  list-style: none;
+
+  
+}
+.wrapper-icons{
+  width:60px;
+ 
+ 
+}
