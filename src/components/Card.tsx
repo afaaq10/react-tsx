@@ -14,9 +14,9 @@ interface Props {
 const Card: React.FC<Props> = ({ todo, todos, setTodos }) => {
 
     const Delete = (id: number) => {
-        console.log(id)
+
         setTodos(todos.filter((todo) => todo.id !== id))
-        console.log(todo.id)
+
     }
     const Done = (id: number) => {
 
@@ -33,7 +33,7 @@ const Card: React.FC<Props> = ({ todo, todos, setTodos }) => {
 
 
 
-            <div className="wrapper-icons">
+            <div className="wrapper-icon">
                 <span className="delete" onClick={() => Delete(todo.id)} ><MdDelete /></span>
             </div>
             <div >
