@@ -8,6 +8,12 @@ interface Props {
 }
 const InputField = ({ todo, setTodo, handleAdd }) => {
 
+    const inputRef = React.useRef(null);
+    React.useEffect(() => {
+        inputRef.current.focus();
+    }, []);
+
+
 
     const Change = (e) => {
         setTodo(e.target.value)
@@ -19,7 +25,9 @@ const InputField = ({ todo, setTodo, handleAdd }) => {
 
             <form onSubmit={handleAdd}>
 
-                <input type="text" placeholder="enter your note" onChange={Change} value={todo} />
+                <input type="text" placeholder="enter your note" onChange={Change} value={todo}
+                    ref={inputRef}
+                />
                 <button  >Add</button>
             </form>
 

@@ -21,24 +21,26 @@ const Card: React.FC<Props> = ({ todo, todos, setTodos }) => {
     const Done = (id: number) => {
 
         setTodos(todos.map((todo) => todo.id === id ? { ...todo, isDone: !todo.isDone } : todo))
-
     }
+
     return (
-        <div className="card">
+        <div className="card text-white ">
 
             {
-                todo.isDone ? <s>{todo.todo}</s> : <span>{todo.todo}</span>
+                todo.isDone ? <s className="text-black">{todo.todo}</s> : <span className="mt-5 mx-5" >{todo.todo}</span>
             }
 
 
 
 
-            <div className="wrapper-icon">
-                <span className="delete" onClick={() => Delete(todo.id)} ><MdDelete /></span>
+            <div className="wrapper-icon m-2 mt-2 ">
+                <span title="delete note" className="delete" onClick={() => Delete(todo.id)} ><MdDelete /></span>
+
             </div>
-            <div >
-                <span className="edit" onClick={() => Done(todo.id)} ><MdFileDownloadDone /></span>
+            <div  >
+                <span title="completed" className="edit mt-2" onClick={() => Done(todo.id)} ><MdFileDownloadDone /></span>
             </div>
+
         </div>
     )
 }
