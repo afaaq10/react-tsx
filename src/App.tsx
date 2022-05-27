@@ -3,13 +3,12 @@ import InputField from './components/InputField'
 import TodosList from './components/TodosList'
 import './App.css';
 import { Todo } from './model'
-// import { useEffect } from 'react'
+import Card from './components/Card'
+
 
 function App() {
 
-  // useEffect(() => {
-  //   <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
-  // }, [])
+
 
   const [todo, setTodo] = React.useState("")
   const [todos, setTodos] = React.useState<Todo[]>([])
@@ -24,11 +23,14 @@ function App() {
     }
 
   }
+
+
   console.log(todos)
   return (
     <div>
       <InputField todo={todo} setTodo={setTodo} handleAdd={handleAdd} />
       <TodosList todos={todos} setTodos={setTodos} />
+
     </div>
   );
 }

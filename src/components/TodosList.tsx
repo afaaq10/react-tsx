@@ -6,9 +6,20 @@ interface Props {
     setTodos: React.Dispatch<React.SetStateAction<Todo[]>>
 }
 const TodosList: React.FC<Props> = ({ todos, setTodos }) => {
+
     return (
         <div>
-            {todos.map((todo) => <Card todo={todo} todos={todos} setTodos={setTodos} />)}
+            {
+                todos.map((todo, key) =>
+
+                    <>
+                        < Card key={key} todos={todos} todo={todo} setTodos={setTodos} />
+                        <div className="key text-white text-center">
+                            {key + 1}
+                        </div>
+                    </>
+                )
+            }
 
 
         </div>

@@ -8,6 +8,8 @@ interface Props {
 }
 const InputField = ({ todo, setTodo, handleAdd }) => {
 
+
+
     const inputRef = React.useRef(null);
     React.useEffect(() => {
         inputRef.current.focus();
@@ -18,6 +20,8 @@ const InputField = ({ todo, setTodo, handleAdd }) => {
     const Change = (e) => {
         setTodo(e.target.value)
     }
+
+    const arr = [1, 2, 4]
 
 
     return (
@@ -30,6 +34,7 @@ const InputField = ({ todo, setTodo, handleAdd }) => {
                 />
                 <button  >Add</button>
             </form>
+
 
         </div>
     )
