@@ -37,7 +37,7 @@ const Card: React.FC<Props> = ({ todo, todos, setTodos, key }) => {
             <div className="text-black mt-5 font-bold" >
 
                 {
-                    todo.isDone ? <s className="text-black">{todo.todo}</s> : <span className="mt-5 mx-5" >{todo.todo}</span>
+                    todo.isDone ? <s className="text-white">{todo.todo}</s> : <span className="text-white mt-5 mx-5" >{todo.todo}</span>
                 }
 
 
