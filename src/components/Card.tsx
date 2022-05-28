@@ -46,11 +46,11 @@ const Card: React.FC<Props> = ({ todo, todos, setTodos, key }) => {
 
 
 
-            <div className="wrapper-icon m-2 mt-2 ">
+            <div className="wrapper-icon m-2 mt-2 div-delete">
                 <span title="delete note" className="delete" onClick={() => Delete(todo.id)} ><MdDelete /></span>
 
             </div>
-            <div  >
+            <div className=" div-edit" >
                 <span title="completed" className="edit mt-2" onClick={() => Done(todo.id)} ><MdFileDownloadDone /></span>
             </div>
 
