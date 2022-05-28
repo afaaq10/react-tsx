@@ -90,6 +90,9 @@ button:hover{
   margin-top:4px;
   margin-left:16px;
 }
+.div-edit:hover{
+  transform: scale(1.1);
+}
 li{
   list-style: none;
 
