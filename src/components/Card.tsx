@@ -34,11 +34,14 @@ const Card: React.FC<Props> = ({ todo, todos, setTodos, key }) => {
     return (
         <div className="card text-white ">
             <p id="demo" className="text-white"></p>
+            <div className="text-white mt-5" >
 
-            {
-                todo.isDone ? <s className="text-black">{todo.todo}</s> : <span className="mt-5 mx-5" >{todo.todo}</span>
-            }
 
+                {
+                    todo.isDone ? <s className="text-black">{todo.todo}</s> : <span className="mt-5 mx-5" >{todo.todo}</span>
+                }
+
+            </div>
 
 
 
