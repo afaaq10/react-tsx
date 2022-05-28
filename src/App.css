@@ -83,6 +83,7 @@ button:hover{
 .delete{
   margin-top:4px;
   margin-left:12px;
+  width: 80px;
 
  
  
@@ -90,7 +91,9 @@ button:hover{
 }
 .delete-react{
   color:#9d1b1b;
+  
 }
+
 .div-delete:hover{
  
   transform: scale(1.1);
@@ -119,4 +122,6 @@ li{
   margin-top: -30px;
   margin-left: -170px;
 }
-
+.todo-text{
+  height:25px;
+}

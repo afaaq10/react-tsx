@@ -1,6 +1,8 @@
 import React from 'react'
 import { Todo } from '../model'
-import { MdDelete } from 'react-icons/md'
+import DeleteIcon from '@mui/icons-material/Delete';
+import DoneIcon from '@mui/icons-material/Done';
+
 
 import { MdFileDownloadDone } from 'react-icons/md'
 interface Props {
@@ -32,12 +34,12 @@ const Card: React.FC<Props> = ({ todo, todos, setTodos, key }) => {
     }
 
     return (
-        <div className="card text-black ">
+        <div className="card text-black mt-10 ">
 
-            <div className="text-black mt-5 font-bold" >
+            <div className="text-black  font-bold" >
 
                 {
-                    todo.isDone ? <s className="text-white">{todo.todo}</s> : <span className="text-white mt-5 mx-5" >{todo.todo}</span>
+                    todo.isDone ? <s className="text-white">{todo.todo}</s> : <span className="text-white mt-5 mx-5 todo-text" >{todo.todo}</span>
                 }
 
 
@@ -47,11 +49,12 @@ const Card: React.FC<Props> = ({ todo, todos, setTodos, key }) => {
 
 
             <div className="wrapper-icon m-2 mt-2 div-delete">
-                <span title="delete note" className="delete" onClick={() => Delete(todo.id)} ><MdDelete className="delete-react" /></span>
+                <span title="delete note" className="delete" onClick={() => Delete(todo.id)} ><DeleteIcon className="delete-react" /></span>
 
             </div>
             <div className=" div-edit" >
-                <span title="completed" className="edit mt-2" onClick={() => Done(todo.id)} ><MdFileDownloadDone /></span>
+                <span title="completed" className="edit mt-2" onClick={() => Done(todo.id)} ><DoneIcon /></span>
+
             </div>
 
         </div>
