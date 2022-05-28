@@ -32,14 +32,14 @@ const Card: React.FC<Props> = ({ todo, todos, setTodos, key }) => {
     }
 
     return (
-        <div className="card text-white ">
-            <p id="demo" className="text-white"></p>
-            <div className="text-white mt-5" >
+        <div className="card text-black ">
 
+            <div className="text-black mt-5 font-bold" >
 
                 {
                     todo.isDone ? <s className="text-black">{todo.todo}</s> : <span className="mt-5 mx-5" >{todo.todo}</span>
                 }
+
 
             </div>
 
@@ -47,7 +47,7 @@ const Card: React.FC<Props> = ({ todo, todos, setTodos, key }) => {
 
 
             <div className="wrapper-icon m-2 mt-2 div-delete">
-                <span title="delete note" className="delete" onClick={() => Delete(todo.id)} ><MdDelete /></span>
+                <span title="delete note" className="delete" onClick={() => Delete(todo.id)} ><MdDelete className="delete-react" /></span>
 
             </div>
             <div className=" div-edit" >

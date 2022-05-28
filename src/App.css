@@ -1,5 +1,12 @@
 body{
-  background-color:#282c34;
+ 
+  background-image: url("https://images.unsplash.com/photo-1471970394675-613138e45da3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8YWdlbmRhfGVufDB8fDB8fA%3D%3D&w=1000&q=80");
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+ 
+
+  
 }
 .App form{
   text-align: center;
@@ -59,6 +66,7 @@ button{
   border-radius:15px;
   background-color:whitesmoke;
   width:80px;
+  
 }
 button:hover{
   background-color:aqua;
@@ -79,6 +87,9 @@ button:hover{
  
  
   
+}
+.delete-react{
+  color:#9d1b1b;
 }
 .div-delete:hover{
  
