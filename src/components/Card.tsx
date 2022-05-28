@@ -14,14 +14,10 @@ interface Props {
 
 
 
+
 const Card: React.FC<Props> = ({ todo, todos, setTodos, key }) => {
 
 
-    setTimeout(() => {
-        const arr = [1, 2, 3, 4, 6, 7, 8, 9, 10]
-        let ab: any = localStorage.setItem('array', JSON.stringify(arr))
-        document.getElementById("demo").innerHTML = JSON.parse(localStorage.getItem('array'))
-    }, 1000);
 
 
     const Delete = (id: number) => {
