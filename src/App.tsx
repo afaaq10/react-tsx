@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { fetchQuizApi, QuestionState } from './API'
 import { Difficulty } from './API'
 
@@ -12,20 +12,34 @@ export type AnswerState = {
   correct_answer: string;
 }
 const TOTAL_QUESTIONS = 10
+
+
+
 const App = () => {
+  const [number, setNumber] = React.useState(0)
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextQuestion();
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [number]);
+
 
 
   const [loading, setLoading] = React.useState(false)
 
   const [questions, setQuestions] = React.useState<AnswerObject[]>([])
 
-  const [number, setNumber] = React.useState(0)
 
   const [score, setScore] = React.useState(0)
 
   const [userAnswers, setUserAnswers] = React.useState<AnswerState[]>([])
 
   const [gameover, setGameOver] = React.useState(true)
+  const [text, setText] = React.useState("Start Quiz")
+
 
   const startTrivia = async () => {
     setLoading(true)
@@ -35,7 +49,12 @@ const App = () => {
     setScore(0)
     setNumber(0)
     setUserAnswers([])
+
     setGameOver(false)
+
+    setText("Play again")
+
+
 
   }
 
@@ -81,20 +100,32 @@ const App = () => {
 
 
 
-      <button onClick={startTrivia} style={{ border: '2px solid black' }}>Start Quiz </button>
+
+
+      {!loading && gameover && <button onClick={startTrivia} type="button" style={{ color: 'black', background: 'lightblue' }} className="btn btn-primary">{text}</button>}
+
+
+      {userAnswers.length == 10 && <button onClick={startTrivia} type="button" style={{ color: 'black', background: 'lightblue' }} className="btn btn-primary">{text}</button>}
+
+
       {/* {!gameover && <b><p style={{ marginTop: '10px' }} >Score: {score}</p></b>} */}
       {loading && gameover && <p>Loading...</p>}
 
 
-      {!gameover && !loading && (
-        <QuestionCard
-          questionNr={number + 1}
-          totalQuestions={TOTAL_QUESTIONS}
-          question={questions[number].question}
-          answers={questions[number].answers}
-          callback={checkAnswer}
-          userAnswers={userAnswers ? userAnswers[number] : undefined} />
+      {!gameover && !loading && userAnswers.length != TOTAL_QUESTIONS && (
+        <>
+          <p style={{ color: 'red' }}>Select an answer otherwise next Q will automatically pop up in 10 seconds. </p>
+          <QuestionCard
+            questionNr={number + 1}
+            totalQuestions={TOTAL_QUESTIONS}
+            question={questions[number].question}
+            answers={questions[number].answers}
+            callback={checkAnswer}
+            userAnswers={userAnswers ? userAnswers[number] : undefined} />
+
+        </>
       )
+
       }
 
 
@@ -106,12 +137,52 @@ const App = () => {
       ) : null}
 
 
+
+
       {userAnswers.length == 10 ? (
         <>
+          <h2 style={{ marginTop: '55px' }} > Your final score is : <b>{score}</b></h2>
+          <table className="table" style={{ marginTop: '25px' }}>
+            <thead >
+              <tr >
+                <th scope="col">Your Answers</th>
+                <th scope="col" >Correct Answers</th>
 
-          <p style={{ marginTop: '12px' }}> Answers you submitted : </p>
-          {userAnswers.map((x) => <b><p> {x.answer}</p></b>)}
-          <p style={{ marginTop: '10px' }} > Your final score is : <b>{score}</b></p>
+              </tr>
+            </thead>
+          </table>
+
+          {userAnswers.map((x) =>
+          (
+            <>
+
+
+
+
+              <tbody>
+                <tr>
+
+                  <td> {x.answer}</td>
+                  <td style={{ color: 'green' }}> <p style={{ marginLeft: '125px' }}>{x.correct_answer}</p> </td>
+
+
+
+                </tr>
+
+              </tbody>
+
+
+
+
+
+
+
+            </>
+
+          )
+
+          )}
+
 
         </>
 
