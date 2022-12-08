@@ -72,6 +72,9 @@ const App = () => {
   }
 
 
+
+  console.log(userAnswers.length)
+  console.log("The number is ", number)
   return (
     <>
 
@@ -79,7 +82,7 @@ const App = () => {
 
 
       <button onClick={startTrivia} style={{ border: '2px solid black' }}>Start Quiz </button>
-      {!gameover && <b><p style={{ marginTop: '10px' }} >Score: {score}</p></b>}
+      {/* {!gameover && <b><p style={{ marginTop: '10px' }} >Score: {score}</p></b>} */}
       {loading && gameover && <p>Loading...</p>}
 
 
@@ -103,7 +106,22 @@ const App = () => {
       ) : null}
 
 
+      {userAnswers.length == 10 ? (
+        <>
 
+          <p style={{ marginTop: '12px' }}> Answers you submitted : </p>
+          {userAnswers.map((x) => <b><p> {x.answer}</p></b>)}
+          <p style={{ marginTop: '10px' }} > Your final score is : <b>{score}</b></p>
+
+        </>
+
+
+
+
+
+
+
+      ) : null}
 
 
     </>
