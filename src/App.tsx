@@ -19,9 +19,11 @@ const App = () => {
   const [number, setNumber] = React.useState(0)
 
   useEffect(() => {
+
     const interval = setInterval(() => {
       nextQuestion();
     }, 10000);
+    console.log(interval)
 
     return () => clearInterval(interval);
   }, [number]);
@@ -105,7 +107,6 @@ const App = () => {
       {!loading && gameover && <button onClick={startTrivia} type="button" style={{ color: 'black', background: 'lightblue' }} className="btn btn-primary">{text}</button>}
 
 
-      {userAnswers.length == 10 && <button onClick={startTrivia} type="button" style={{ color: 'black', background: 'lightblue' }} className="btn btn-primary">{text}</button>}
 
 
       {/* {!gameover && <b><p style={{ marginTop: '10px' }} >Score: {score}</p></b>} */}
